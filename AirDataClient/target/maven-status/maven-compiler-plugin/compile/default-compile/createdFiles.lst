@@ -1,7 +1,6 @@
 com/airdata/dao/ExceptionDAO.class
-com/airdata/dao/UserDAO.class
 com/airdata/model/Server.class
+com/airdata/dao/UserDAO.class
 com/airdata/dao/ConnectionDatabase.class
-com/airdata/view/App.class
 com/airdata/model/User.class
 com/airdata/controller/UserController.class
