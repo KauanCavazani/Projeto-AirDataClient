@@ -17,7 +17,7 @@ public class ConnectionDatabase {
         }
         
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/airData", "airdata_client", "#AirData2022");
+            conn = DriverManager.getConnection("jdbc:mysql://0.0.0.0:3306/airData", "airdata_client", "#AirData2022");
         } catch (SQLException e) {
             e.printStackTrace();
         }
