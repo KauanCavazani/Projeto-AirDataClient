@@ -17,7 +17,7 @@ public class ConnectionDatabase {
         }
         
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://ConteinerBD:3306/airData", "airdata_client", "#AirData2022");
+            conn = DriverManager.getConnection("jdbc:mysql://host.docker.internal:3306/airData", "airdata_client", "#AirData2022");
         } catch (SQLException e) {
             e.printStackTrace();
         }
