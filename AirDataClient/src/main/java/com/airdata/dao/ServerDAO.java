@@ -41,28 +41,7 @@ public class ServerDAO {
             
             throw new ExceptionDAO("Erro ao receber os id's dos componentes: " + e);
             
-        } finally {
-            
-            try {
-            
-                if(ps != null) { ps.close(); }
-
-            } catch (SQLException e) {
-            
-                throw new ExceptionDAO("Erro ao fechar o Statement: " + e);
-            
-            } try {
-            
-                if(connection != null) { connection.close(); }
-
-            } catch (SQLException e) {
-            
-                throw new ExceptionDAO("Erro ao fechar a conexão: " + e);
-            
-            }
-   
-        }
-         
+        } 
     }
     
     public void saveData(Integer idMetric, Integer idComponent, Integer value, String macAddress) throws ExceptionDAO {
@@ -88,28 +67,7 @@ public class ServerDAO {
             
             throw new ExceptionDAO("Erro ao salvar as leituras: " + e);
             
-        } finally {
-            
-            try {
-            
-                if(ps != null) { ps.close(); }
-
-            } catch (SQLException e) {
-            
-                throw new ExceptionDAO("Erro ao fechar o Statement: " + e);
-            
-            } try {
-            
-                if(connection != null) { connection.close(); }
-
-            } catch (SQLException e) {
-            
-                throw new ExceptionDAO("Erro ao fechar a conexão: " + e);
-            
-            }
-   
-        }
-         
+        } 
     }
  
 }

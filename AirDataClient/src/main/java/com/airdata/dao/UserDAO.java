@@ -41,27 +41,7 @@ public class UserDAO {
             
             throw new ExceptionDAO("Erro ao realizar o Login: " + e);
             
-        } finally {
-            
-            try {
-            
-                if(ps != null) { ps.close(); }
-
-            } catch (SQLException e) {
-            
-                throw new ExceptionDAO("Erro ao fechar o Statement: " + e);
-            
-            } try {
-            
-                if(connection != null) { connection.close(); }
-
-            } catch (SQLException e) {
-            
-                throw new ExceptionDAO("Erro ao fechar a conexão: " + e);
-            
-            }
-   
-        }
+        } 
          
     }
     
