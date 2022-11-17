@@ -45,33 +45,32 @@ if [ $? -eq 0 ]
 				clear
 			
 		fi
-
-		echo "Clonando o repositório..."
-		sleep 2
-		cd ~/
-		git clone https://github.com/KauanCavazani/Projeto-AirDataClient.git
-		clear
-		echo "Repositório criado!"
-		sleep 2
-		clear
-		echo "Criando atalho"
-		cd ~/Projeto-AirDataClient/AirDataClient
-		sleep 2
-		clear
-		echo "Instalando a aplicação..."
-		sleep 2
-		mvn install
-		cd ~/Projeto-AirDataClient/AirDataClient/target
-		clear
-		echo "Criando atalho na desktop."
-		sleep 2
-		cp ~/Projeto-AirDataClient/AirDataClient/target/AirDataClient-1.0-SNAPSHOT-jar-with-dependencies.jar ~/Desktop
-		clear
-		cd ~/Desktop
-		echo "Iniciando aplicação!"
-		java -jar AirDataClient-1.0-SNAPSHOT-jar-with-dependencies.jar
-
 fi
+
+	echo "Clonando o repositório..."
+	sleep 2
+	cd ~/
+	git clone https://github.com/KauanCavazani/Projeto-AirDataClient.git
+	clear
+	echo "Repositório criado!"
+	sleep 2
+	clear
+	echo "Criando atalho"
+	cd ~/Projeto-AirDataClient/AirDataClient
+	sleep 2
+	clear
+	echo "Instalando a aplicação..."
+	sleep 2
+	mvn install
+	cd ~/Projeto-AirDataClient/AirDataClient/target
+	clear
+	echo "Criando atalho na desktop."
+	sleep 2
+	cp ~/Projeto-AirDataClient/AirDataClient/target/AirDataClient-1.0-SNAPSHOT-jar-with-dependencies.jar ~/Desktop
+	clear
+	cd ~/Desktop
+	echo "Iniciando aplicação!"
+	java -jar AirDataClient-1.0-SNAPSHOT-jar-with-dependencies.jar
 			
 echo "$(tput setaf 10)[AirData assistant]:$(tput setaf 7)  Encerrando, até mais!"
 
