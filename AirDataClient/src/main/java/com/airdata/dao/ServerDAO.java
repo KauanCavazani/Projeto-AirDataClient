@@ -2,6 +2,7 @@ package com.airdata.dao;
 
 import com.airdata.model.Server;
 import com.airdata.model.User;
+import java.io.IOException;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -48,7 +49,7 @@ public class ServerDAO {
         } 
     }
     
-    public void saveData(Integer idMetric, Integer idComponent, Integer value, String macAddress) throws ExceptionDAO {
+    public void saveData(Integer idMetric, Integer idComponent, Integer value, String macAddress) throws ExceptionDAO, IOException {
         
         Connection connectionMySql = null;
         Connection connectionSqlServer = null;
