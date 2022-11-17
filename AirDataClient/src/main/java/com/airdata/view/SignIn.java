@@ -36,6 +36,12 @@ public class SignIn extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/LogoAzulEscuro.png"))); // NOI18N
         jLabel1.setText("jLabel1");
 
+        inptEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inptEmailActionPerformed(evt);
+            }
+        });
+
         jLabel2.setText("Email");
 
         jLabel3.setText("Senha");
@@ -117,6 +123,10 @@ public class SignIn extends javax.swing.JFrame {
         }
          
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void inptEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inptEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inptEmailActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
