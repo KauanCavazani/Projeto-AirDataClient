@@ -24,7 +24,7 @@ public class ConnectionDatabase {
         }
         
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://" + ipv4 + "/airData", "airdata_client", "#AirData2022");
+            conn = DriverManager.getConnection("jdbc:mysql://" + ipv4 + "/airData", "root", "urubu100");
         } catch (SQLException e) {
             e.printStackTrace();
         }
