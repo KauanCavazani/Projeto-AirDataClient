@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,8 +15,10 @@ public class ServerDAO {
     
     public List<Server> getServer(Server server) throws ExceptionDAO {
         
-        Connection connection = null;
-        PreparedStatement ps = null;
+        // Connection connectionMySql = null;
+        Connection connectionSqlServer = null;
+        //PreparedStatement ps = null;
+        Statement statement = null;
         
         String query = "SELECT * FROM vw_getServidor WHERE idServidor = '" + server.getMacAddress() + "';";
         
@@ -23,10 +26,11 @@ public class ServerDAO {
             
             List serverComponentList = null;
             
-            connection = new ConnectionDatabase().getConnection();
+            // connectionMySql = new ConnectionDatabase().getConnectionMYSQL();
+            connectionSqlServer = new ConnectionDatabase().getConnectionSQLServer();
             
-            ps = connection.prepareStatement(query);            
-            ResultSet rs = ps.executeQuery(query);
+            statement = connectionSqlServer.createStatement();            
+            ResultSet rs = statement.executeQuery(query);
             if(rs != null) {
                 serverComponentList = new ArrayList<User>();
                 
@@ -46,21 +50,29 @@ public class ServerDAO {
     
     public void saveData(Integer idMetric, Integer idComponent, Integer value, String macAddress) throws ExceptionDAO {
         
-        Connection connection = null;
+        Connection connectionMySql = null;
+        Connection connectionSqlServer = null;
         PreparedStatement ps = null;
+        Statement statement = null;
         
         String query = String.format("INSERT INTO leitura (fkMetrica, horario, valorLido, fkComponente_idComponente, fkComponente_fkServidor) VALUES (%d, now(), %d, %d, '%s');",
                 idMetric, value, idComponent, macAddress);
         
-        System.out.println(query);
+        String querySqlServer = String.format("INSERT INTO leitura (fkMetrica, horario, valorLido, fkComponente_idComponente, fkComponente_fkServidor) VALUES (%d, GETDATE(), %d, %d, '%s');",
+                idMetric, value, idComponent, macAddress);
+        
+        System.out.println("Executando...");
         
         try {
             
-            connection = new ConnectionDatabase().getConnection();
+            connectionMySql = new ConnectionDatabase().getConnectionMYSQL();
+            connectionSqlServer = new ConnectionDatabase().getConnectionSQLServer();
             
-            ps = connection.prepareStatement(query);   
+            ps = connectionMySql.prepareStatement(query);  
+            statement = connectionSqlServer.createStatement();  
        
             ps.execute();
+            statement.execute(querySqlServer);
             
             
         } catch (SQLException e) {

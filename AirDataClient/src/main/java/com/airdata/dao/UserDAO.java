@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 import com.airdata.model.User;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,8 +14,10 @@ public class UserDAO {
     
     public List<User> signIn(User user) throws ExceptionDAO {
         
-        Connection connection = null;
-        PreparedStatement ps = null;
+        // Connection connectionMySql = null;
+        Connection connectionSqlServer = null;
+        // PreparedStatement ps = null;
+        Statement statementSqlServer = null;
         
         String query = "SELECT nomeUsuario, idTorre FROM vw_iniciarSessao WHERE emailUsuario = '" + user.getEmail() + "' AND senhaUsuario = '" + user.getPassword() + "';";
         
@@ -22,10 +25,12 @@ public class UserDAO {
             
             List userList = null;
             
-            connection = new ConnectionDatabase().getConnection();
+            // connectionMySql = new ConnectionDatabase().getConnectionMYSQL();
+            connectionSqlServer = new ConnectionDatabase().getConnectionSQLServer();
             
-            ps = connection.prepareStatement(query);            
-            ResultSet rs = ps.executeQuery(query);
+            //ps = connectionSqlServer.prepareStatement(query);            
+            statementSqlServer = connectionSqlServer.createStatement();            
+            ResultSet rs = statementSqlServer.executeQuery(query);
             if(rs != null) {
                 userList = new ArrayList<User>();
                 
