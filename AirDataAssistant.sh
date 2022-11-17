@@ -12,7 +12,7 @@ sleep 2
 which java
 if [ $? -eq 0 ]
 	then
-		echo "$(tput setaf 10)[AirData assistant]:: Você já tem o java instalado!!!"
+		echo "$(tput setaf 10)[AirData assistant]: Você já tem o java instalado!!!"
 		sleep 2 
 		clear
 	else
@@ -52,28 +52,27 @@ fi
 	cd ~/
 	git clone https://github.com/KauanCavazani/Projeto-AirDataClient.git
 	clear
+
 	echo "$(tput setaf 10)[AirData assistant]: Repositório criado!"
 	sleep 2
 	clear
 	cd ~/Projeto-AirDataClient/AirDataClient
+
 	echo "$(tput setaf 10)[AirData assistant]: Instalando a aplicação..."
 	sleep 2
 	mvn install
 	cd ~/Projeto-AirDataClient/AirDataClient/target
 	clear
+
 	echo "$(tput setaf 10)[AirData assistant]: Criando atalho na desktop."
 	sleep 2
 	cp ~/Projeto-AirDataClient/AirDataClient/target/AirDataClient-1.0-SNAPSHOT-jar-with-dependencies.jar ~/Desktop
 	clear
 	cd ~/Desktop
+	
 	echo "$(tput setaf 10)[AirData assistant]: Iniciando aplicação!"
+	sudo service mysql stop
+	sudo docker start 40b
 	java -jar AirDataClient-1.0-SNAPSHOT-jar-with-dependencies.jar
 			
 echo "$(tput setaf 10)[AirData assistant]: Encerrando, até mais!"
-
-# ===================================================================
-# Todos direitos reservados para o autor: Dra. Profa. Marise Miranda.
-# Sob licença Creative Commons @2020
-# Podera modificar e reproduzir para uso pessoal.
-# Proibida a comercialização e a exclusão da autoria.
-# ===================================================================
