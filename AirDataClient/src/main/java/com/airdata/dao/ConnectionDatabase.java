@@ -1,14 +1,16 @@
 package com.airdata.dao;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionDatabase {
     
-    public Connection getConnectionMYSQL() {
+    public Connection getConnectionMYSQL() throws IOException {
         
         Connection conn = null;
         String ipv4 = getIpv4();
@@ -47,18 +49,13 @@ public class ConnectionDatabase {
         return conn;
     }
     
-    private String getIpv4() {
+    private String getIpv4() throws IOException {
         
-        String ipv4 = null;
-        
-        try {
-            InetAddress thisIp = InetAddress.getLocalHost();
-            ipv4 = thisIp.getHostAddress().toString();
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
+        String urlString = "http://checkip.amazonaws.com/";
+        URL url = new URL(urlString);
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream()))) {
+            return br.readLine();
         }
-        System.out.println(ipv4);
-        return ipv4;
     }
     
 }
