@@ -6,14 +6,14 @@ public class Server {
     private Integer idCpu;
     private Integer idRam;
     private Integer idDisk;
-    private Integer idTemp;
+    // private Integer idTemp;
 
     public Server(String macAddress) {
         this.macAddress = macAddress;
         this.idCpu = null;
         this.idRam = null;
         this.idDisk = null;
-        this.idTemp = null;
+        // this.idTemp = null;
     }
 
     public String getMacAddress() {
@@ -47,13 +47,5 @@ public class Server {
     public void setIdDisk(Integer idDisk) {
         this.idDisk = idDisk;
     }
-
-    public Integer getIdTemp() {
-        return idTemp;
-    }
-
-    public void setIdTemp(Integer idTemp) {
-        this.idTemp = idTemp;
-    }  
     
 }

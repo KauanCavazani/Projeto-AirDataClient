@@ -28,7 +28,7 @@ public class ServerController {
             server.setIdCpu((Integer) serverComponentList.get(0));
             server.setIdDisk((Integer) serverComponentList.get(1));
             server.setIdRam((Integer) serverComponentList.get(2));
-            server.setIdTemp((Integer) serverComponentList.get(3));
+            // server.setIdTemp((Integer) serverComponentList.get(3));
             return server;
         }
         
