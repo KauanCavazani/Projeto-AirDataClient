@@ -10,6 +10,7 @@ import com.airdata.model.User;
 
 import com.airdata.controller.ServerController;
 import com.airdata.dao.ExceptionDAO;
+import java.io.IOException;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -52,6 +53,8 @@ public class Dash extends javax.swing.JFrame {
                     diskBar.setValue((int) dataList.get(3));
                     
                 } catch (SocketException | UnknownHostException | ExceptionDAO | ClassNotFoundException ex) {
+                    Logger.getLogger(Dash.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
                     Logger.getLogger(Dash.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 

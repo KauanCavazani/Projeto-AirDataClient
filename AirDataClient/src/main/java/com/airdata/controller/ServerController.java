@@ -5,6 +5,7 @@ import com.airdata.model.Server;
 import com.airdata.dao.ServerDAO;
 import com.airdata.view.Dash;
 import com.github.britooo.looca.api.core.Looca;
+import java.io.IOException;
 
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -35,7 +36,7 @@ public class ServerController {
         return null;
     }
     
-    public List saveData(Server server) throws ExceptionDAO, ClassNotFoundException, SocketException, UnknownHostException {
+    public List saveData(Server server) throws ExceptionDAO, ClassNotFoundException, SocketException, UnknownHostException, IOException {
         
         Looca looca = new Looca();
         ServerDAO serverDAO = new ServerDAO();
