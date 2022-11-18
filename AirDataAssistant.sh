@@ -8,7 +8,7 @@ clear
 echo  "$(tput setaf 10)[AirData assistant]: Olá $USER, sou seu assistente. !;"
 echo  "$(tput setaf 10)[AirData assistant]: Verificando se você possui o Java instalado...;"
 sleep 2
-
+# \e[32m       \e[0m  
 which java
 if [ $? -eq 0 ]
 	then
@@ -60,6 +60,7 @@ fi
 
 	echo "$(tput setaf 10)[AirData assistant]: Instalando a aplicação..."
 	sleep 2
+	sudo apt install maven
 	mvn install
 	cd ~/Projeto-AirDataClient/AirDataClient/target
 	clear
